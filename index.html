@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Screening</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button onclick="showTab('patient')" class="tab-btn active">Patient</button>
+            <button onclick="showTab('clinician')" class="tab-btn">Clinician</button>
+        </div>
+
+        <div id="patient" class="tab-content active">
+            <h2>Patient Portal</h2>
+            <div class="camera-container">
+                <video id="camera" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="camera-controls">
+                    <button id="captureBtn" class="primary-btn">Take Photo</button>
+                    <button id="switchCameraBtn" class="secondary-btn">Switch Camera</button>
+                </div>
+            </div>
+            <div id="preview"></div>
+        </div>
+
+        <div id="clinician" class="tab-content">
+            <h2>Clinician Portal</h2>
+            <div id="imageList" class="image-list">
+                <p class="no-images">No images submitted yet</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Install prompt -->
+    <div id="installPrompt" class="install-prompt">
+        <div class="install-prompt-text">
+            Install SkinCheck app for better experience
+        </div>
+        <button id="installButton" class="primary-btn">Install</button>
+        <button class="close-prompt" onclick="hideInstallPrompt()">×</button>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
