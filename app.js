@@ -2,11 +2,12 @@ let stream;
 let facingMode = 'environment';
 let deferredPrompt = null;
 
-// Initialize the PWA
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-        .then(registration => console.log('ServiceWorker registered'))
-        .catch(error => console.log('ServiceWorker registration failed:', error));
+    navigator.serviceWorker.register('./service-worker.js', {
+        scope: '/Skin-Cancer-App/' // Replace with your repo name
+    })
+    .then(registration => console.log('ServiceWorker registered'))
+    .catch(error => console.log('ServiceWorker registration failed:', error));
 }
 
 // Handle install prompt
